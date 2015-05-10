@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateFacturaTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateFacturaLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{facturaController.selected.id}" title="#{bundle.CreateFacturaTitle_id}" />
+                    <h:outputLabel value="#{bundle.CreateFacturaLabel_cliente}" for="cliente" />
+                    <h:selectOneMenu id="cliente" value="#{facturaController.selected.cliente}" title="#{bundle.CreateFacturaTitle_cliente}" >
+                        <f:selectItems value="#{personaController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateFacturaLabel_vendedor}" for="vendedor" />
+                    <h:selectOneMenu id="vendedor" value="#{facturaController.selected.vendedor}" title="#{bundle.CreateFacturaTitle_vendedor}" >
+                        <f:selectItems value="#{personaController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateFacturaLabel_direccionEntrega}" for="direccionEntrega" />
+                    <h:selectOneMenu id="direccionEntrega" value="#{facturaController.selected.direccionEntrega}" title="#{bundle.CreateFacturaTitle_direccionEntrega}" >
+                        <f:selectItems value="#{direccionController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateFacturaLabel_fechaVenta}" for="fechaVenta" />
+                    <h:inputText id="fechaVenta" value="#{facturaController.selected.fechaVenta}" title="#{bundle.CreateFacturaTitle_fechaVenta}" />
+                    <h:outputLabel value="#{bundle.CreateFacturaLabel_fechaEntrega}" for="fechaEntrega" />
+                    <h:inputText id="fechaEntrega" value="#{facturaController.selected.fechaEntrega}" title="#{bundle.CreateFacturaTitle_fechaEntrega}" />
+                    <h:outputLabel value="#{bundle.CreateFacturaLabel_medioPago}" for="medioPago" />
+                    <h:selectOneMenu id="medioPago" value="#{facturaController.selected.medioPago}" title="#{bundle.CreateFacturaTitle_medioPago}" >
+                        <f:selectItems value="#{medioPagoController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateFacturaLabel_valor}" for="valor" />
+                    <h:inputText id="valor" value="#{facturaController.selected.valor}" title="#{bundle.CreateFacturaTitle_valor}" />
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{facturaController.create}" value="#{bundle.CreateFacturaSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{facturaController.prepareList}" value="#{bundle.CreateFacturaShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateFacturaIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
