@@ -21,31 +21,31 @@ public class UsuarioFacade {
     @EJB DireccionService direccionService;
 
     public int countDireccion() {
-        throw new UnsupportedOperationException("Not supported yet."); 
+        return direccionService.count();
     }
 
     public List<Direccion> findDireccionRange(int[] i) {
-        throw new UnsupportedOperationException("Not supported yet."); 
+        return direccionService.findRange(i); 
     }
 
     public void editDireccion(Direccion current) {
-        throw new UnsupportedOperationException("Not supported yet."); 
+        direccionService.edit(current);  
     }
 
     public void removeDireccion(Direccion current) {
-        throw new UnsupportedOperationException("Not supported yet."); 
+        direccionService.remove(current);
     }
 
     public List<?> findAllDireccion() {
-        throw new UnsupportedOperationException("Not supported yet."); 
+        return direccionService.findAll();
     }
 
     public Direccion findDireccion(Long id) {
-        throw new UnsupportedOperationException("Not supported yet."); 
+        return direccionService.find(id);
     }
 
     public void createDireccion(Direccion current) {
-        throw new UnsupportedOperationException("Not supported yet."); 
+        direccionService.create(current);
     }
 
     public int countPersona() {
