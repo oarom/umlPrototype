@@ -1,0 +1,16 @@
+edu/unad/prototipo/modelo/facturacion/ItemFactura_.java
+edu/unad/prototipo/modelo/distribucion/OrdenEntrega_.java
+edu/unad/prototipo/modelo/inventario/ItemOrdenCompra_.java
+edu/unad/prototipo/modelo/usuarios/Persona_.java
+edu/unad/prototipo/modelo/inventario/OrdenCompra_.java
+edu/unad/prototipo/modelo/inventario/Proveedor_.java
+edu/unad/prototipo/modelo/inventario/Alerta_.java
+edu/unad/prototipo/modelo/inventario/Producto_.java
+edu/unad/prototipo/modelo/autorizacion/UsuarioWeb_.java
+edu/unad/prototipo/modelo/usuarios/Direccion_.java
+edu/unad/prototipo/modelo/inventario/ItemInventario_.java
+edu/unad/prototipo/modelo/autorizacion/Rol_.java
+edu/unad/prototipo/modelo/autorizacion/Permiso_.java
+edu/unad/prototipo/modelo/inventario/Inventario_.java
+edu/unad/prototipo/modelo/distribucion/ZonaDistribucion_.java
+edu/unad/prototipo/modelo/facturacion/Factura_.java

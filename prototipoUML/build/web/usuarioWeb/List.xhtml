@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListUsuarioWebTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListUsuarioWebEmpty}" rendered="#{usuarioWebController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{usuarioWebController.items.rowCount > 0}">
+                    <h:outputText value="#{usuarioWebController.pagination.pageFirstItem + 1}..#{usuarioWebController.pagination.pageLastItem + 1}/#{usuarioWebController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{usuarioWebController.previous}" value="#{bundle.Previous} #{usuarioWebController.pagination.pageSize}" rendered="#{usuarioWebController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{usuarioWebController.next}" value="#{bundle.Next} #{usuarioWebController.pagination.pageSize}" rendered="#{usuarioWebController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{usuarioWebController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListUsuarioWebTitle_id}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.id}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListUsuarioWebTitle_login}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.login}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListUsuarioWebTitle_password}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.password}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListUsuarioWebTitle_rol}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.rol}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{usuarioWebController.prepareView}" value="#{bundle.ListUsuarioWebViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{usuarioWebController.prepareEdit}" value="#{bundle.ListUsuarioWebEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{usuarioWebController.destroy}" value="#{bundle.ListUsuarioWebDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{usuarioWebController.prepareCreate}" value="#{bundle.ListUsuarioWebCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListUsuarioWebIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

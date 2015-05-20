@@ -47,31 +47,31 @@ public class InventarioFacade {
     private ProveedorService proveedorService;
 
     public int countAlerta() {
-        throw new UnsupportedOperationException("Not supported yet."); 
+       return alertaService.count();
     }
 
     public List<Alerta> findAlertaRange(int[] i) {
-        throw new UnsupportedOperationException("Not supported yet."); 
+        return alertaService.findRange(i);
     }
 
     public void createAlerta(Alerta current) {
-        throw new UnsupportedOperationException("Not supported yet."); 
+        alertaService.create(current); 
     }
 
     public void editAlerta(Alerta current) {
-        throw new UnsupportedOperationException("Not supported yet."); 
+        alertaService.edit(current); 
     }
 
     public void removeAlerta(Alerta current) {
-        throw new UnsupportedOperationException("Not supported yet."); 
+        alertaService.remove(current); 
     }
 
     public List<?> findAllAlerta() {
-        throw new UnsupportedOperationException("Not supported yet."); 
+        return alertaService.findAll();
     }
 
     public Alerta findAlerta(Long id) {
-        throw new UnsupportedOperationException("Not supported yet."); 
+        return alertaService.find(id); 
     }
 
     public int countInventario() {
@@ -215,31 +215,31 @@ public class InventarioFacade {
     }
 
     public int countProveedor() {
-        throw new UnsupportedOperationException("Not supported yet."); 
+        return proveedorService.count();
     }
 
     public List<Proveedor> findProveedorRange(int[] i) {
-        throw new UnsupportedOperationException("Not supported yet."); 
+        return proveedorService.findRange(i);
     }
 
     public void createProveedor(Proveedor current) {
-        throw new UnsupportedOperationException("Not supported yet."); 
+       proveedorService.create(current); 
     }
 
     public void editProveedor(Proveedor current) {
-        throw new UnsupportedOperationException("Not supported yet."); 
+        proveedorService.edit(current); 
     }
 
     public void removeProveedor(Proveedor current) {
-        throw new UnsupportedOperationException("Not supported yet."); 
+        proveedorService.remove(current); 
     }
 
     public List<?> findAllProveedor() {
-        throw new UnsupportedOperationException("Not supported yet."); 
+        return proveedorService.findAll(); 
     }
 
     public Proveedor findProveedor(Long id) {
-        throw new UnsupportedOperationException("Not supported yet."); 
+        return proveedorService.find(id); 
     }
 
 

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditFacturaTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditFacturaLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{facturaController.selected.id}" title="#{bundle.EditFacturaTitle_id}" />
+                    <h:outputLabel value="#{bundle.EditFacturaLabel_cliente}" for="cliente" />
+                    <h:selectOneMenu id="cliente" value="#{facturaController.selected.cliente}" title="#{bundle.EditFacturaTitle_cliente}" >
+                        <f:selectItems value="#{personaController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditFacturaLabel_vendedor}" for="vendedor" />
+                    <h:selectOneMenu id="vendedor" value="#{facturaController.selected.vendedor}" title="#{bundle.EditFacturaTitle_vendedor}" >
+                        <f:selectItems value="#{personaController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditFacturaLabel_direccionEntrega}" for="direccionEntrega" />
+                    <h:selectOneMenu id="direccionEntrega" value="#{facturaController.selected.direccionEntrega}" title="#{bundle.EditFacturaTitle_direccionEntrega}" >
+                        <f:selectItems value="#{direccionController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditFacturaLabel_fechaVenta}" for="fechaVenta" />
+                    <h:inputText id="fechaVenta" value="#{facturaController.selected.fechaVenta}" title="#{bundle.EditFacturaTitle_fechaVenta}" />
+                    <h:outputLabel value="#{bundle.EditFacturaLabel_fechaEntrega}" for="fechaEntrega" />
+                    <h:inputText id="fechaEntrega" value="#{facturaController.selected.fechaEntrega}" title="#{bundle.EditFacturaTitle_fechaEntrega}" />
+                    <h:outputLabel value="#{bundle.EditFacturaLabel_medioPago}" for="medioPago" />
+                    <h:selectOneMenu id="medioPago" value="#{facturaController.selected.medioPago}" title="#{bundle.EditFacturaTitle_medioPago}" >
+                        <f:selectItems value="#{medioPagoController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditFacturaLabel_valor}" for="valor" />
+                    <h:inputText id="valor" value="#{facturaController.selected.valor}" title="#{bundle.EditFacturaTitle_valor}" />
+                </h:panelGrid>
+                <h:commandLink action="#{facturaController.update}" value="#{bundle.EditFacturaSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditFacturaViewLink}"/>
+                <br />
+                <h:commandLink action="#{facturaController.prepareList}" value="#{bundle.EditFacturaShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditFacturaIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

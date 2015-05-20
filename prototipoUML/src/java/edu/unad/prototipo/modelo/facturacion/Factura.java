@@ -21,7 +21,7 @@ import javax.persistence.OneToOne;
 public class Factura implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @OneToOne
@@ -40,7 +40,6 @@ public class Factura implements Serializable {
     
     private Date fechaEntrega;
     
-    @OneToOne
     private MedioPago medioPago;
     
     private BigDecimal valor;

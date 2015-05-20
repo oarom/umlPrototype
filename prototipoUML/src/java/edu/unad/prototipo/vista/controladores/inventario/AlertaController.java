@@ -26,6 +26,7 @@ public class AlertaController implements Serializable {
     private DataModel items = null;
     @EJB
     private InventarioFacade ejbFacade;
+    
     private PaginationHelper pagination;
     private int selectedItemIndex;
 

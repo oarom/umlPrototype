@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewOrdenCompraTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewOrdenCompraLabel_id}"/>
+                    <h:outputText value="#{ordenCompraController.selected.id}" title="#{bundle.ViewOrdenCompraTitle_id}"/>
+                    <h:outputText value="#{bundle.ViewOrdenCompraLabel_fechaOrden}"/>
+                    <h:outputText value="#{ordenCompraController.selected.fechaOrden}" title="#{bundle.ViewOrdenCompraTitle_fechaOrden}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewOrdenCompraLabel_fechaEntrega}"/>
+                    <h:outputText value="#{ordenCompraController.selected.fechaEntrega}" title="#{bundle.ViewOrdenCompraTitle_fechaEntrega}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewOrdenCompraLabel_estado}"/>
+                    <h:outputText value="#{ordenCompraController.selected.estado}" title="#{bundle.ViewOrdenCompraTitle_estado}"/>
+                    <h:outputText value="#{bundle.ViewOrdenCompraLabel_proveedor}"/>
+                    <h:outputText value="#{ordenCompraController.selected.proveedor}" title="#{bundle.ViewOrdenCompraTitle_proveedor}"/>
+                    <h:outputText value="#{bundle.ViewOrdenCompraLabel_valor}"/>
+                    <h:outputText value="#{ordenCompraController.selected.valor}" title="#{bundle.ViewOrdenCompraTitle_valor}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{ordenCompraController.destroyAndView}" value="#{bundle.ViewOrdenCompraDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewOrdenCompraEditLink}"/>
+                <br />
+                <h:commandLink action="#{ordenCompraController.prepareCreate}" value="#{bundle.ViewOrdenCompraCreateLink}" />
+                <br />
+                <h:commandLink action="#{ordenCompraController.prepareList}" value="#{bundle.ViewOrdenCompraShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewOrdenCompraIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditItemInventarioTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditItemInventarioLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{itemInventarioController.selected.id}" title="#{bundle.EditItemInventarioTitle_id}" />
+                    <h:outputLabel value="#{bundle.EditItemInventarioLabel_producto}" for="producto" />
+                    <h:selectOneMenu id="producto" value="#{itemInventarioController.selected.producto}" title="#{bundle.EditItemInventarioTitle_producto}" >
+                        <f:selectItems value="#{productoController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditItemInventarioLabel_cantidad}" for="cantidad" />
+                    <h:inputText id="cantidad" value="#{itemInventarioController.selected.cantidad}" title="#{bundle.EditItemInventarioTitle_cantidad}" />
+                    <h:outputLabel value="#{bundle.EditItemInventarioLabel_valorIndividual}" for="valorIndividual" />
+                    <h:inputText id="valorIndividual" value="#{itemInventarioController.selected.valorIndividual}" title="#{bundle.EditItemInventarioTitle_valorIndividual}" />
+                    <h:outputLabel value="#{bundle.EditItemInventarioLabel_valorTotal}" for="valorTotal" />
+                    <h:inputText id="valorTotal" value="#{itemInventarioController.selected.valorTotal}" title="#{bundle.EditItemInventarioTitle_valorTotal}" />
+                    <h:outputLabel value="#{bundle.EditItemInventarioLabel_minimo}" for="minimo" />
+                    <h:inputText id="minimo" value="#{itemInventarioController.selected.minimo}" title="#{bundle.EditItemInventarioTitle_minimo}" />
+                </h:panelGrid>
+                <h:commandLink action="#{itemInventarioController.update}" value="#{bundle.EditItemInventarioSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditItemInventarioViewLink}"/>
+                <br />
+                <h:commandLink action="#{itemInventarioController.prepareList}" value="#{bundle.EditItemInventarioShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditItemInventarioIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

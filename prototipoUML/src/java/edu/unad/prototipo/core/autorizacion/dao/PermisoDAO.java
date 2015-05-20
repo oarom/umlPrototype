@@ -17,6 +17,7 @@ import javax.persistence.PersistenceContext;
  */
 @Stateless
 public class PermisoDAO extends AbstractDAO<Permiso> {
+    
     @PersistenceContext(unitName = "prototipoUMLPU")
     private EntityManager em;
 

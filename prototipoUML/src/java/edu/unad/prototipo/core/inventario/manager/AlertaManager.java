@@ -6,6 +6,8 @@
 package edu.unad.prototipo.core.inventario.manager;
 
 import edu.unad.prototipo.core.inventario.dao.AlertaDAO;
+import edu.unad.prototipo.modelo.inventario.Alerta;
+import java.util.List;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 
@@ -20,6 +22,26 @@ public class AlertaManager {
     private AlertaDAO dao;
 
     public AlertaManager() {
+    }
+
+    public int countAlerta() {
+        return dao.count();
+    }
+
+    public List<Alerta> findRange(int[] i) {
+        return dao.findRange(i);
+    }
+
+    public void create(Alerta current) {
+        dao.create(current);
+    }
+
+    public void edit(Alerta current) {
+        dao.edit(current);
+    }
+
+    public void remove(Alerta current) {
+       dao.remove(current);
     }
     
 }
